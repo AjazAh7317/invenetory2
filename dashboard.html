@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #222;
+            color: white;
+            width: 250px;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .sidebar h1 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            color: white;
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+
+        /* Dashboard */
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            flex: 1;
+            background-color: #fff;
+            margin: 0 10px;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card:nth-child(1) {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .card:nth-child(2) {
+            background-color: #ffc107;
+            color: white;
+        }
+
+        .card:nth-child(3) {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .card:nth-child(4) {
+            background-color: #28a745;
+            color: white;
+        }
+
+        /* Chart */
+        .chart-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        canvas {
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h1>PHP Project</h1>
+        <a href="#">Users</a>
+        <a href="#">Category</a>
+        <a href="#">Location Rack</a>
+        <a href="#">Company</a>
+        <a href="#">Supplier</a>
+        <a href="#">Tax</a>
+        <a href="#">Product</a>
+        <a href="#">Product Purchase</a>
+        <a href="#">Order</a>
+        <a href="#">Logout</a>
+        <p style="margin-top: 50px;">Logged in as:<br> John Smith</p>
+    </div>
+
+    <div class="main-content">
+        <!-- Info Cards -->
+        <div class="cards">
+            <div class="card">
+                <h3>31</h3>
+                <p>In Stock Product</p>
+            </div>
+            <div class="card">
+                <h3>1</h3>
+                <p>Out of Stock Product</p>
+            </div>
+            <div class="card">
+                <h3>₹ 328,075.00</h3>
+                <p>Total Purchase</p>
+            </div>
+            <div class="card">
+                <h3>₹ 47,020.94</h3>
+                <p>Total Sale</p>
+            </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="chart-container">
+            <canvas id="salesChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Chart.js for the Sales Chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('salesChart').getContext('2d');
+        var salesChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['2022-05-13', '2022-05-14', '2022-05-15', '2022-05-16'],
+                datasets: [{
+                    label: 'Sales',
+                    data: [5000, 10000, 30000, 47020.94],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    fill: true,
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
