@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Up Store</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background-color: #ffdddd;
+            color: #333;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <form id="storeForm">
+        <h2>Set Up Store</h2>
+        <div class="header">Set Up Store</div>
+        
+        <label for="businessName">Business Name</label>
+        <input type="text" id="businessName" name="businessName" required>
+
+        <label for="address">Address</label>
+        <textarea id="address" name="address" rows="3" required></textarea>
+
+        <label for="contactNo">Contact No.</label>
+        <input type="text" id="contactNo" name="contactNo" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="timezone">Timezone</label>
+        <select id="timezone" name="timezone" required>
+            <option value="">Select Timezone</option>
+            <option value="UTC-12">UTC-12</option>
+            <option value="UTC-11">UTC-11</option>
+            <option value="UTC-10">UTC-10</option>
+            <option value="UTC-9">UTC-9</option>
+            <!-- Add more timezones as needed -->
+        </select>
+
+        <label for="currency">Currency</label>
+        <select id="currency" name="currency" required>
+            <option value="">Select Currency</option>
+            <option value="USD">USD - US Dollar</option>
+            <option value="EUR">EUR - Euro</option>
+            <option value="JPY">JPY - Japanese Yen</option>
+            <!-- Add more currencies as needed -->
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('storeForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const businessName = document.getElementById('businessName').value;
+        const address = document.getElementById('address').value;
+        const contactNo = document.getElementById('contactNo').value;
+        const email = document.getElementById('email').value;
+        const timezone = document.getElementById('timezone').value;
+        const currency = document.getElementById('currency').value;
+
+        console.log('Form Submitted');
+        console.log('Business Name:', businessName);
+        console.log('Address:', address);
+        console.log('Contact No.:', contactNo);
+        console.log('Email:', email);
+        console.log('Timezone:', timezone);
+        console.log('Currency:', currency);
+
+        // Add your form submission logic here, like sending data to a server
+    });
+</script>
+
+</body>
+</html>
